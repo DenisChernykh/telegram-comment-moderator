@@ -1,0 +1,7 @@
+allowBuilds:
+  esbuild: true
+  workerd: true
+engineStrict: true
+saveExact: true
+strictPeerDependencies: true
+verifyDepsBeforeRun: error

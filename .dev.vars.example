@@ -1,0 +1,4 @@
+# Generate three different random values locally. Never commit .dev.vars.
+OWNER_LOGIN_SECRET=replace-with-at-least-32-random-characters
+TELEGRAM_BOT_TOKEN=
+TELEGRAM_WEBHOOK_SECRET=replace-with-at-least-32-random-characters

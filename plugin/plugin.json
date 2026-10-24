@@ -1,0 +1,15 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "telegram-comment-moderator",
+  "version": "0.1.0",
+  "description": "Moderate saved Telegram discussion comments through authenticated MCP tools and events.",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Telegram Comment Moderator",
+        "shortDescription": "Проверка комментариев и удаление явного спама",
+        "capabilities": ["Read", "Write"]
+      }
+    }
+  }
+}

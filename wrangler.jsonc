@@ -1,0 +1,41 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "telegram-comment-moderator-local",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-08-28",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "workers_dev": true,
+  "secrets": {
+    "required": ["OWNER_LOGIN_SECRET", "TELEGRAM_WEBHOOK_SECRET", "TELEGRAM_BOT_TOKEN"]
+  },
+  "vars": {
+    "APP_ORIGIN": "http://localhost:8787",
+    "OWNER_ID": "owner",
+    "BOT_ID": "unconfigured",
+    "BUILD_REVISION": "local",
+    "CALLBACK_HOSTS": "",
+    "OAUTH_REDIRECT_URIS": "https://chatgpt.com/connector_platform_oauth_redirect"
+  },
+  "durable_objects": { "bindings": [{ "name": "MODERATOR", "class_name": "Moderator" }] },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["Moderator"] }],
+  "observability": { "enabled": true, "logs": { "invocation_logs": false } },
+  "env": {
+    "production": {
+      "name": "telegram-comment-moderator",
+      "account_id": "ebaa03c1c49ce3b02206e46234fe633f",
+      "secrets": {
+        "required": ["OWNER_LOGIN_SECRET", "TELEGRAM_WEBHOOK_SECRET", "TELEGRAM_BOT_TOKEN"]
+      },
+      "vars": {
+        "APP_ORIGIN": "https://telegram-comment-moderator.ingenue-jolts-8i.workers.dev",
+        "OWNER_ID": "owner",
+        "BOT_ID": "8919436812",
+        "BUILD_REVISION": "0.1.0",
+        "CALLBACK_HOSTS": "connectors.api.openai.com",
+        "OAUTH_REDIRECT_URIS": "https://chatgpt.com/connector_platform_oauth_redirect"
+      },
+      "durable_objects": { "bindings": [{ "name": "MODERATOR", "class_name": "Moderator" }] },
+      "observability": { "enabled": true, "logs": { "invocation_logs": false } }
+    }
+  }
+}
